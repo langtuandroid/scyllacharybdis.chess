@@ -1,5 +1,6 @@
 package Scenes 
 {
+	import com.scyllacharybdis.components.TextureRenderComponent;
 	import com.scyllacharybdis.components.XMLRenderComponent;
 	import com.scyllacharybdis.core.memory.allocate;
 	import com.scyllacharybdis.core.objects.GameObject;
@@ -27,8 +28,10 @@ package Scenes
 			var _test:GameObject = allocate( GameObject );
 			trace("LoginScene1");
 			var tmpRender:XMLRenderComponent = allocate( XMLRenderComponent );
+			//var tmpRender:TextureRenderComponent = allocate( TextureRenderComponent );
 			trace("LoginScene2");
-			tmpRender.loadTexture("test.png");//.loadMaterial("test.xml", "spinnersprite");
+			//tmpRender.loadTexture("test.png");
+			tmpRender.loadMaterial("test.xml", "spinnersprite");
 			trace("LoginScene3");
 			_test.addComponent(tmpRender);
 			trace("LoginScene4");
