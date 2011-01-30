@@ -10,7 +10,7 @@ package Scenes
 	 */
 	public class GameScene extends SceneObject
 	{
-		private var _background:GameObject;
+		private var _background:Background;
 		
 		/**
 		 * Create the scene
@@ -26,11 +26,11 @@ package Scenes
 		{
 			_background = allocate( Background );
 			
-			_background.position.x = 0;
-			_background.position.y = 0;
+			_background.gameObject.position.x = 0;
+			_background.gameObject.position.y = 0;
 			
 			// Add the to the scene
-			addToScene(_background);
+			addToScene(_background.gameObject);
 		}
 		
 		/**

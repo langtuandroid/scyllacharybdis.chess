@@ -1,5 +1,6 @@
 package Prefabs 
 {
+	import adobe.utils.CustomActions;
 	import com.scyllacharybdis.components.XMLRenderComponent;
 	import com.scyllacharybdis.core.memory.allocate;
 	import com.scyllacharybdis.core.memory.deallocate;
@@ -13,6 +14,7 @@ package Prefabs
 	public class Background extends BaseObject
 	{
 		private var _gameObject:GameObject;
+		private var _isCreated:Boolean = false;
 		
 		public override function awake():void 
 		{
@@ -24,10 +26,6 @@ package Prefabs
 		 */
 		public override function start():void
 		{
-			var tmpRender:XMLRenderComponent = allocate( XMLRenderComponent );
-			tmpRender.loadMaterial("background.xml", "backgroundsprite");
-			_gameObject.addComponent(tmpRender);
-			//_gameObject.addComponent( allocate(scriptObject) );
 		}
 		
 		/**
@@ -45,12 +43,23 @@ package Prefabs
 			deallocate( _gameObject );
 		}
 		
-		public function get gameObject():GameObject { return _gameObject; }
-		
-		public function set gameObject(value:GameObject):void 
+		public function get gameObject():GameObject 
 		{
-			_gameObject = value;
+			if ( _isCreated != true )
+			{
+				createGameObject();
+			}
+			return _gameObject; 
+		}
+		
+	
+		private function createGameObject():void
+		{
+			var tmpRender:XMLRenderComponent = allocate( XMLRenderComponent );
+			tmpRender.loadMaterial("background.xml", "backgroundsprite");
+			_gameObject.addComponent(tmpRender);
+			//_gameObject.addComponent( allocate(scriptObject) );
+			
 		}
 	}
-
 }
