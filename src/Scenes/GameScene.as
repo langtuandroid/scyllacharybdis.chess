@@ -1,5 +1,6 @@
 package Scenes 
 {
+	import com.scyllacharybdis.core.memory.allocate;
 	import com.scyllacharybdis.core.objects.GameObject;
 	import com.scyllacharybdis.core.objects.SceneObject;
 	import Prefabs.Background;
