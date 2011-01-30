@@ -18,6 +18,9 @@ package Prefabs
 		private var _gameObject:GameObject;
 		private var _isCreated:Boolean = false;
 		
+		/**
+		 * Create the prefab
+		 */
 		public final override function engine_awake():void 
 		{
 			 _gameObject = allocate(GameObject);
@@ -25,37 +28,40 @@ package Prefabs
 		}
 		
 		/**
-		 * Start the scene
+		 * Start the prefab
 		 */
 		public final override function engine_start():void
 		{
 		}
 		
 		/**
-		 * Stop the scene
+		 * Stop the prefab
 		 */
 		public final override function engine_stop():void
 		{
 		}
 		
 		/**
-		 * Destroy the scene
+		 * Destroy the prefab
 		 */
 		public final override function engine_destroy():void
 		{
 			deallocate( _gameObject );
 		}
-		
+
+		/**
+		 * Override to create the components
+		 */
 		protected function createGameObject():void
 		{
 		}		
-		
+
+		/**
+		 * Add the object to the sceen
+		 */
 		public final function addToScene():void
 		{
-			if ( _isCreated == false )
-			{
-				createGameObject();
-			}
+			baseCreateObject();
 			_sceneGraph.addGameObjectToScene(_gameObject);
 		}
 		
@@ -64,11 +70,7 @@ package Prefabs
 		 */
 		public function get position():Point3d 
 		{ 
-			if ( _isCreated == false )
-			{
-				createGameObject();
-			}
-			
+			baseCreateObject();
 			return _gameObject.position;
 		}
 
@@ -78,10 +80,7 @@ package Prefabs
 		 */
 		public function set position( value:Point3d ):void 
 		{ 
-			if ( _isCreated == false )
-			{
-				createGameObject();
-			}			
+			baseCreateObject();
 			_gameObject.position = value; 
 		}
 		
@@ -90,10 +89,7 @@ package Prefabs
 		 */
 		public function get scale():Point3d 
 		{ 
-			if ( _isCreated == false )
-			{
-				createGameObject();
-			}			
+			baseCreateObject();
 			return _gameObject.scale;
 		}
 
@@ -102,10 +98,7 @@ package Prefabs
 		 */
 		public function set scale( value:Point3d ):void 
 		{ 
-			if ( _isCreated == false )
-			{
-				createGameObject();
-			}			
+			baseCreateObject();
 			_gameObject.scale = value; 
 		}
 		
@@ -114,10 +107,7 @@ package Prefabs
 		 */		
 		public function get rotation():Number 
 		{ 
-			if ( _isCreated == false )
-			{
-				createGameObject();
-			}			
+			baseCreateObject();
 			return _gameObject.rotation;
 		}
 		
@@ -126,12 +116,15 @@ package Prefabs
 		 */
 		public function set rotation( value:Number):void 
 		{ 
-			if ( _isCreated == false )
-			{
-				createGameObject();
-			}			
+			baseCreateObject();
 			_gameObject.rotation = value; 
 		}		
+
+		private final function baseCreateObject():void
+		{
+			baseCreateObject();
+			_isCreated = true;			
+		}
 		
 	}
 

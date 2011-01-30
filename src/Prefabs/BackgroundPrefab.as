@@ -6,7 +6,7 @@ package Prefabs
 	 */
 	public class BackgroundPrefab extends BasePrefab 
 	{
-		protected function createGameObject():void
+		protected override function createGameObject():void
 		{
 			var tmpRender:XMLRenderComponent = allocate( XMLRenderComponent );
 			tmpRender.loadMaterial("background.xml", "backgroundsprite");
