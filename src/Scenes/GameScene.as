@@ -1,18 +1,16 @@
 package Scenes 
 {
-	import com.scyllacharybdis.components.ScriptComponent;
-	import com.scyllacharybdis.components.TextureRenderComponent;
-	import com.scyllacharybdis.components.XMLRenderComponent;
-	import com.scyllacharybdis.core.memory.allocate;
 	import com.scyllacharybdis.core.objects.GameObject;
 	import com.scyllacharybdis.core.objects.SceneObject;
-
+	import Prefabs.Background;
 	/**
 	 * ...
 	 * @author Scylla and Charybdis Dev Team
 	 */
-	public class LoginScene extends SceneObject
+	public class GameScene extends SceneObject
 	{
+		private var _background:GameObject;
+		
 		/**
 		 * Create the scene
 		 */
@@ -25,16 +23,13 @@ package Scenes
 		 */
 		public override function start():void
 		{
-			var _test:GameObject = allocate( GameObject );
-			var tmpRender:XMLRenderComponent = allocate( XMLRenderComponent );
-			tmpRender.loadMaterial("test.xml", "spinnersprite");
-			_test.addComponent(tmpRender);
+			_background = allocate( Background );
 			
-			_test.position.x = 0;
-			_test.position.y = 0;
+			_background.position.x = 0;
+			_background.position.y = 0;
 			
 			// Add the to the scene
-			addToScene(_test);
+			addToScene(_background);
 		}
 		
 		/**

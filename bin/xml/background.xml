@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<spritesheet>
+	<material>
+		<texture filename="BackGround_PNG.png"/>
+		<areas>
+			<area name="backgroundsprite" top="0.0" left="0.0" width="800" height="600">
+			</area>
+		</areas>
+	</material>
+</spritesheet>
