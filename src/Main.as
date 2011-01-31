@@ -5,14 +5,14 @@ package
 	import com.scyllacharybdis.core.memory.allocate;
 	import com.scyllacharybdis.core.rendering.Renderer;
 	import com.scyllacharybdis.core.rendering.Window;
-	import com.scyllacharybdis.core.scenes.SceneManager;
 	import com.scyllacharybdis.handlers.ChatMessageHandler;
 	import com.scyllacharybdis.handlers.ConnectionHandler;
 	import com.scyllacharybdis.handlers.LoginHandler;
 	import com.scyllacharybdis.handlers.RoomHandler;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import Scenes.GameScene;
+	import scene.SceneManager;
+	import Scenes.BackgroundScene;
 	import Scenes.LoginScene;
 	
 	/**
@@ -57,8 +57,10 @@ package
 			_sceneManager = allocate(SceneManager);
 
 			// Display the intro scene
-			//_sceneManager.PushScene(LoginScene);
-			_sceneManager.PushScene(GameScene);
+			_sceneManager.PushScene(BackgroundScene);
+			// Don't hide the background
+			_sceneManager.PushScene(LoginScene, false);
+			//_sceneManager.PushScene(GameScene);
 
 			addEventListener( Event.ENTER_FRAME, onEnterFrame );
 		}

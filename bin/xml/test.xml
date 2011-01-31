@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <spritesheet>
 	<material>
-		<texture filename="BackGround_PNG.png"/>
+		<texture filename="test.png"/>
 		<areas>
 			<area name="spinnersprite" top="0.0" left="0.0" width="700" height="560">
 				<animations>

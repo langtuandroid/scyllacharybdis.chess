@@ -1,18 +1,16 @@
 package Scenes 
 {
-	import com.scyllacharybdis.components.ScriptComponent;
-	import com.scyllacharybdis.components.TextureRenderComponent;
 	import com.scyllacharybdis.components.XMLRenderComponent;
 	import com.scyllacharybdis.core.memory.allocate;
 	import com.scyllacharybdis.core.memory.deallocate;
 	import com.scyllacharybdis.core.objects.GameObject;
 	import scene.SceneObject;
-
+	
 	/**
 	 * ...
 	 * @author Scylla and Charybdis Dev Team
 	 */
-	public class LoginScene extends SceneObject
+	public class BackgroundScene extends SceneObject
 	{
 		private var _gameObj:GameObject;
 		
@@ -21,17 +19,17 @@ package Scenes
 		 */
 		public override function awake():void 
 		{
-			// Allocate the gameobject 
+			// Create the game object
 			_gameObj = allocate( GameObject );
 			
-			// Create the render component
+			// Create a render component
 			var tmpRender:XMLRenderComponent = allocate( XMLRenderComponent );
 			
-			// Load the material 
-			tmpRender.loadMaterial("test.xml", "spinnersprite");
+			// Load the background image
+			tmpRender.loadMaterial("background.xml", "backgroundsprite");
 			
-			// Attach render componet to the gameobject
-			_gameObj.addComponent(tmpRender);			
+			// Attach the background image to the gameobject
+			_gameObj.addComponent(tmpRender);
 		}
 		
 		/**
@@ -39,9 +37,6 @@ package Scenes
 		 */
 		public override function start():void
 		{
-			_gameObj.position.x = 0;
-			_gameObj.position.y = 0;
-			
 			// Add the gameobject to the scene
 			addToScene(_gameObj);
 		}
@@ -51,8 +46,8 @@ package Scenes
 		 */
 		public override function stop():void
 		{
-			// Remove the game object from the scene
-			removeFromScene( _gameObj );
+			// Remove the gameobject from the scene
+			removeFromScene(_gameObj);
 		}
 		
 		/**
