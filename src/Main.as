@@ -13,6 +13,7 @@ package
 	import flash.events.Event;
 	import scene.SceneManager;
 	import Scenes.BackgroundScene;
+	import Scenes.ConnectScene;
 	import Scenes.LoginScene;
 	
 	/**
@@ -58,8 +59,10 @@ package
 
 			// Display the intro scene
 			_sceneManager.PushScene(BackgroundScene);
+
 			// Don't hide the background
-			_sceneManager.PushScene(LoginScene, false);
+			_sceneManager.PushScene(ConnectScene, false);
+			//_sceneManager.PushScene(LoginScene, false);
 			//_sceneManager.PushScene(GameScene);
 
 			addEventListener( Event.ENTER_FRAME, onEnterFrame );
