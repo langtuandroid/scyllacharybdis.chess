@@ -38,7 +38,7 @@ package
 			
 			// Create a window
 			_window = allocate(Window);
-			_window.displayContext = this;
+			_window.canvas = this;
 			
 			// Create a rendering system
 			_renderer = allocate(Renderer);
@@ -65,14 +65,10 @@ package
 			//_sceneManager.PushScene(LoginScene, false);
 			//_sceneManager.PushScene(GameScene);
 
-			addEventListener( Event.ENTER_FRAME, onEnterFrame );
+
 		}
 
-		private function onEnterFrame( e:Event ):void
-		{
-			_renderer.render();
-		}
-		
+
 	}
 	
 }
