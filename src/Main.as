@@ -51,21 +51,12 @@ package
 			var _roomHandler:RoomHandler = allocate(RoomHandler);
 			var _chatMessageHandler:ChatMessageHandler = allocate(ChatMessageHandler);
 			
-			// Fire a network connection event
-			_networkHandler.fireEvent(NetworkEvents.CONNECT);
-
 			// Create the scene manager
 			_sceneManager = allocate(SceneManager);
 
-			// Display the intro scene
+			// Display the background and connect scene
 			_sceneManager.PushScene(BackgroundScene);
-
-			// Don't hide the background
 			_sceneManager.PushScene(ConnectScene, false);
-			//_sceneManager.PushScene(LoginScene, false);
-			//_sceneManager.PushScene(GameScene);
-
-
 		}
 
 
